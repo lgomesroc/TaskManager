@@ -1,0 +1,19 @@
+# Dependências
+/vendor/
+/node_modules/
+
+# Ambiente
+.env
+.env.*
+
+# Arquivos de log
+/storage/logs/*
+
+# Arquivos de cache
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+
+# Sistema operacional
+.DS_Store
+Thumbs.db

@@ -8,6 +8,8 @@
 - Criação, edição, exclusão e priorização de tarefas.
 - Filtros por status das tarefas: pendente, em andamento e concluída.
 - Notificações automáticas para prazos próximos.
+- Gerenciamento de anexos relacionados às tarefas.
+- Gerenciamento de permissões (roles) para controle de acesso.
 
 ## Tecnologias Utilizadas
 
@@ -15,6 +17,15 @@
 - **Backend**: PHP com Laravel
 - **Banco de Dados**: MySQL
 - **Docker**: Para ambiente de desenvolvimento
+
+## Estrutura do Projeto
+
+- **Backend**: Laravel com suporte para API e rotas web.
+   - Rotas configuradas em `web.php` e `api.php`.
+   - Controllers separados para Web e API.
+   - Migrations criadas para todas as tabelas do banco de dados.
+   - Models configuradas para representar cada tabela.
+- **Frontend**: Angular, com suporte para consumo de APIs.
 
 ## Como Rodar o Projeto
 
@@ -33,7 +44,8 @@
    ```bash
    git clone https://github.com/seu-usuario/TaskManager.git
    cd TaskManager
-Para configurar o ambiente, use o Docker:
+
+    Configure o ambiente usando Docker:
 
 docker-compose up -d
 
@@ -42,18 +54,33 @@ Instale as dependências do backend (Laravel):
 cd backend
 composer install
 
-Crie o banco de dados:
+Configure o banco de dados no arquivo .env do Laravel com as seguintes credenciais:
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=taskmanager
+DB_USERNAME=lgomesroc
+DB_PASSWORD=12345
+
+Execute as migrations para criar as tabelas no banco de dados:
 
 php artisan migrate
 
-Inicie o servidor de desenvolvimento:
+Inicie o servidor de desenvolvimento do backend:
 
 php artisan serve
 
-O frontend (Angular) pode ser iniciado com:
+Instale as dependências do frontend (Angular):
 
-cd frontend
+cd ../frontend
 npm install
+
+Inicie o servidor de desenvolvimento do frontend:
+
 ng serve
 
-Acesse o sistema no navegador: http://localhost:4200 para o frontend e http://localhost:8000 para o backend.
+Acesse o sistema no navegador:
+
+    Frontend: http://localhost:4200
+    Backend: http://localhost:8000

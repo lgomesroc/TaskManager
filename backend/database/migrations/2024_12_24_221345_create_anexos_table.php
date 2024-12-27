@@ -10,17 +10,19 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('anexos', function (Blueprint $table) {
-            $table->id(); // ID do anexo
-            $table->string('caminho'); // Caminho do arquivo
-            $table->foreignId('tarefa_id')->constrained()->onDelete('cascade'); // Relacionamento com a tarefa
-            $table->timestamps(); // created_at e updated_at
+        Schema::create('attachments', function (Blueprint $table) {
+            $table->id(); // ID primário
+            $table->string('file_name'); // Nome do arquivo
+            $table->string('file_path'); // Caminho do arquivo
+            $table->string('mime_type'); // Tipo MIME
+            $table->unsignedBigInteger('user_id'); // Relacionamento com o usuário
+            $table->timestamps(); // Campos de created_at e updated_at
+
+            // Chave estrangeira
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down()
     {
         Schema::dropIfExists('anexos');

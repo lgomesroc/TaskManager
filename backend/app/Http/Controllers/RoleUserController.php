@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\RoleUserControllers;
 
 use Illuminate\Http\Request;
 
-class PasswordResetTokenController extends Controller
+class RoleUserController extends Controller
 {
     public function index()
     {

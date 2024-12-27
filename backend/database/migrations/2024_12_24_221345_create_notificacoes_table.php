@@ -10,18 +10,17 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('notificacoes', function (Blueprint $table) {
-            $table->id(); // ID da notificação
-            $table->string('titulo'); // Título da notificação
-            $table->text('mensagem'); // Mensagem da notificação
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Relacionamento com o usuário
-            $table->timestamps(); // created_at e updated_at
-        });
+        if (!Schema::hasTable('notificacoes')) {
+            Schema::create('notificacoes', function (Blueprint $table) {
+                $table->id(); // ID da notificação
+                $table->string('titulo'); // Título da notificação
+                $table->text('mensagem'); // Mensagem da notificação
+                $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Relacionamento com o usuário
+                $table->timestamps(); // created_at e updated_at
+            });
+        }
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down()
     {
         Schema::dropIfExists('notificacoes');

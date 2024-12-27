@@ -10,9 +10,10 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->id(); // ID do papel
-            $table->string('nome'); // Nome do papel (admin, usuário)
+        Schema::create('role_user', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Relacionamento com users
+            $table->foreignId('role_id')->constrained()->onDelete('cascade'); // Relacionamento com roles
             $table->timestamps(); // created_at e updated_at
         });
     }
@@ -22,6 +23,7 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('role_user');
     }
 };
+

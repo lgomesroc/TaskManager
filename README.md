@@ -21,10 +21,10 @@
 ## Estrutura do Projeto
 
 - **Backend**: Laravel com suporte para API e rotas web.
-   - Rotas configuradas em `web.php` e `api.php`.
-   - Controllers separados para Web e API.
-   - Migrations criadas para todas as tabelas do banco de dados.
-   - Models configuradas para representar cada tabela.
+    - Rotas configuradas em `web.php` e `api.php`.
+    - Controllers separados para Web e API.
+    - Migrations criadas para todas as tabelas do banco de dados.
+    - Models configuradas para representar cada tabela.
 - **Frontend**: Angular, com suporte para consumo de APIs.
 
 ## Como Rodar o Projeto
@@ -78,9 +78,12 @@ npm install
 
 Inicie o servidor de desenvolvimento do frontend:
 
-ng serve
+    ng serve
 
-Acesse o sistema no navegador:
+    Acesse o sistema no navegador:
+        Frontend: http://localhost:4200
+        Backend: http://localhost:8000
 
-    Frontend: http://localhost:4200
-    Backend: http://localhost:8000
+Licença
+
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE para mais detalhes.

@@ -8,7 +8,7 @@ use App\Http\Controllers\RoleUserController;
 use App\Http\Controllers\PasswordResetTokenController;
 use App\Http\Controllers\PersonalAccessTokenController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\TaskController;
+use App\Http\Controllers\TarefaController;
 
 Route::get('/', function () {
 return view('welcome');  // Página inicial, pode ser modificada
@@ -23,12 +23,12 @@ Route::put('/tarefas/{id}', 'TarefaController@update')->name('tarefas.update');
 Route::delete('/tarefas/{id}', 'TarefaController@destroy')->name('tarefas.destroy');
 
 // Rotas para Usuários
-Route::get('/users', [UserController::class, 'index'])->name('usuarios.index'); // Listar todos os usuários
-Route::get('/users/criar', [UserController::class, 'create'])->name('usuarios.criar'); // Formulário para criar um usuário
-Route::post('/users', [UserController::class, 'store'])->name('usuarios.salvar'); // Salvar novo usuário
-Route::get('/users/{id}/editar', [UserController::class, 'edit'])->name('usuarios.editar'); // Formulário para editar um usuário
-Route::put('/users/{id}', [UserController::class, 'update'])->name('usuarios.atualizar'); // Atualizar usuário
-Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('usuarios.deletar'); // Deletar usuário
+Route::get('/users', [UserController::class, 'index'])->name('users.index'); // Listar todos os usuários
+Route::get('/users/criar', [UserController::class, 'create'])->name('users.criar'); // Formulário para criar um usuário
+Route::post('/users', [UserController::class, 'store'])->name('users.salvar'); // Salvar novo usuário
+Route::get('/users/{id}/editar', [UserController::class, 'edit'])->name('users.editar'); // Formulário para editar um usuário
+Route::put('/users/{id}', [UserController::class, 'update'])->name('users.atualizar'); // Atualizar usuário
+Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.deletar'); // Deletar usuário
 
 // Rotas para Notificações
 Route::get('/notificacoes', [NotificationController::class, 'index'])->name('notificacoes.index'); // Listar todas as notificações

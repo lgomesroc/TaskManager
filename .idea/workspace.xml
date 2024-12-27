@@ -5,9 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99e2410c-181d-484a-b9e2-077914c025d4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/attachments/attachments.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/notifications/notifications.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/password_access_token/password_access_token.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/password_reset_token/password_reset_token.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/roles/roles.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/roleuser/roleuser.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/tasks/tasks.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/users/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/resources/views/users/users.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/RoleUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/RoleUserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2024_12_24_221345_create_anexos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2024_12_24_221345_create_anexos_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2024_12_24_221345_create_notificacoes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2024_12_24_221345_create_notificacoes_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2024_12_24_221345_create_role_user_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2024_12_27_221345_create_roles_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2024_12_24_221345_create_roles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2024_12_27_221346_create_role_user_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2024_12_24_221345_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2024_12_24_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2024_12_24_221437_create_password_reset_tokens_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2024_12_24_222643_create_personal_access_tokens_table.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -278,6 +296,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/backend/resources/views" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/backend/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
@@ -305,7 +328,9 @@
       <workItem from="1735064036165" duration="371000" />
       <workItem from="1735077176495" duration="3614000" />
       <workItem from="1735175733126" duration="677000" />
-      <workItem from="1735217327718" duration="2649000" />
+      <workItem from="1735217327718" duration="3308000" />
+      <workItem from="1735251229959" duration="6645000" />
+      <workItem from="1735321427406" duration="5783000" />
     </task>
     <servers />
   </component>

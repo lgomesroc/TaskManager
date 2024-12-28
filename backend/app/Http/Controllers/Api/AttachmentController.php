@@ -3,47 +3,67 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Attachment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AttachmentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // Listar todos os anexos
     public function index()
     {
-        //
+        $attachments = Attachment::all();
+        return response()->json($attachments);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // Criar um novo anexo
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'file' => 'required|file|mimes:jpg,jpeg,png,pdf,docx|max:10240', // Limite de 10MB
+            'task_id' => 'required|exists:tasks,id',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        $filePath = $request->file('file')->store('attachments');
+
+        $attachment = Attachment::create([
+            'file_path' => $filePath,
+            'task_id' => $request->task_id,
+        ]);
+
+        return response()->json($attachment, 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    // Exibir um único anexo
+    public function show($id)
     {
-        //
+        $attachment = Attachment::find($id);
+
+        if (!$attachment) {
+            return response()->json(['message' => 'Anexo não encontrado'], 404);
+        }
+
+        return response()->json($attachment);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    // Deletar um anexo
+    public function destroy($id)
     {
-        //
-    }
+        $attachment = Attachment::find($id);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        if (!$attachment) {
+            return response()->json(['message' => 'Anexo não encontrado'], 404);
+        }
+
+        // Excluir o arquivo fisicamente
+        unlink(storage_path('app/' . $attachment->file_path));
+
+        $attachment->delete();
+
+        return response()->json(['message' => 'Anexo deletado com sucesso']);
     }
 }

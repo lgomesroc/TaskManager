@@ -5,27 +5,71 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99e2410c-181d-484a-b9e2-077914c025d4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/attachments/attachments.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/notifications/notifications.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/password_access_token/password_access_token.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/password_reset_token/password_reset_token.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/roles/roles.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/roleuser/roleuser.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/tasks/tasks.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/users/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/resources/views/users/users.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/AttachmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/AttachmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/NotificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/NotificationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/PasswordResetTokenController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/PasswordResetTokenController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/PersonalAccessTokenController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/PersonalAccessTokenController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/RoleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/RoleUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/RoleUserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/TarefaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/TarefaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/Api/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/AttachmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/AttachmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/NotificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/NotificationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/PasswordResetTokenController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/PasswordResetTokenController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/PersonalAccessTokenController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/PersonalAccessTokenController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/RoleController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/RoleUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/RoleUserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/TarefaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/TarefaController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2024_12_24_221345_create_anexos_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2024_12_24_221345_create_anexos_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2024_12_24_221345_create_notificacoes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2024_12_24_221345_create_notificacoes_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2024_12_24_221345_create_role_user_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2024_12_27_221345_create_roles_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2024_12_24_221345_create_roles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2024_12_27_221346_create_role_user_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2024_12_24_221345_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/database/migrations/2024_12_24_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2024_12_24_221437_create_password_reset_tokens_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/database/migrations/2024_12_24_222643_create_personal_access_tokens_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/attachments/attachments.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/attachments/attachments.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/attachments/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/attachments/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/attachments/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/attachments/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/attachments/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/attachments/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/attachments/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/attachments/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/notifications/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/notifications/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/notifications/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/notifications/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/notifications/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/notifications/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/notifications/notifications.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/notifications/notifications.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/notifications/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/notifications/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/password_access_token/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/personal_access_token/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/password_access_token/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/personal_access_token/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/password_access_token/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/personal_access_token/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/password_access_token/password_access_token.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/personal_access_token/personal_access_token.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/password_access_token/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/personal_access_token/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/password_reset_token/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/password_reset_token/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/password_reset_token/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/password_reset_token/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/password_reset_token/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/password_reset_token/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/password_reset_token/password_reset_token.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/password_reset_token/password_reset_token.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/password_reset_token/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/password_reset_token/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/roles/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/roles/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/roles/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/roles/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/roles/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/roles/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/roles/roles.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/roles/roles.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/roles/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/roles/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/roleuser/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/roleuser/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/roleuser/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/roleuser/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/roleuser/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/roleuser/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/roleuser/roleuser.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/roleuser/roleuser.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/roleuser/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/roleuser/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/tasks/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/tasks/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/tasks/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/tasks/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/tasks/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/tasks/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/tasks/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/tasks/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/tasks/tasks.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/tasks/tasks.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/users/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/users/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/users/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/users/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/users/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/users/users.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/users/users.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -293,6 +337,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -330,7 +375,9 @@
       <workItem from="1735175733126" duration="677000" />
       <workItem from="1735217327718" duration="3308000" />
       <workItem from="1735251229959" duration="6645000" />
-      <workItem from="1735321427406" duration="5783000" />
+      <workItem from="1735321427406" duration="9161000" />
+      <workItem from="1735393636993" duration="14083000" />
+      <workItem from="1735418747123" duration="461000" />
     </task>
     <servers />
   </component>

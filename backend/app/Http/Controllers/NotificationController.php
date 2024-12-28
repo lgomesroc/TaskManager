@@ -2,37 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 
 class NotificationController extends Controller
 {
+    // Exibe a lista de notificações
     public function index()
     {
-        // List all notifications
+        $notifications = Notification::all();
+        return view('notifications.index', compact('notifications'));
     }
 
-    public function create()
+    // Exibe uma notificação específica
+    public function show(Notification $notification)
     {
-        // Show form to create a new notification
+        return view('notifications.show', compact('notification'));
     }
 
-    public function store(Request $request)
+    // Exclui uma notificação
+    public function destroy(Notification $notification)
     {
-        // Save a new notification
-    }
-
-    public function edit($id)
-    {
-        // Show form to edit a notification
-    }
-
-    public function update(Request $request, $id)
-    {
-        // Update a notification
-    }
-
-    public function destroy($id)
-    {
-        // Delete a notification
+        $notification->delete();
+        return redirect()->route('notifications.index');
     }
 }

@@ -3,47 +3,41 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\PasswordResetToken;
 use Illuminate\Http\Request;
 
 class PasswordResetTokenController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // Listar todos os tokens de reset de senha
     public function index()
     {
-        //
+        $tokens = PasswordResetToken::all();
+        return response()->json($tokens);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    // Exibir um token de reset de senha específico
+    public function show($id)
     {
-        //
+        $token = PasswordResetToken::find($id);
+
+        if (!$token) {
+            return response()->json(['message' => 'Token não encontrado'], 404);
+        }
+
+        return response()->json($token);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    // Deletar um token de reset de senha
+    public function destroy($id)
     {
-        //
-    }
+        $token = PasswordResetToken::find($id);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+        if (!$token) {
+            return response()->json(['message' => 'Token não encontrado'], 404);
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $token->delete();
+
+        return response()->json(['message' => 'Token de reset de senha deletado com sucesso']);
     }
 }

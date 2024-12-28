@@ -3,47 +3,41 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\PersonalAccessToken;
 use Illuminate\Http\Request;
 
 class PersonalAccessTokenController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // Listar todos os tokens de acesso pessoal
     public function index()
     {
-        //
+        $tokens = PersonalAccessToken::all();
+        return response()->json($tokens);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    // Exibir um token de acesso pessoal específico
+    public function show($id)
     {
-        //
+        $token = PersonalAccessToken::find($id);
+
+        if (!$token) {
+            return response()->json(['message' => 'Token não encontrado'], 404);
+        }
+
+        return response()->json($token);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    // Deletar um token de acesso pessoal
+    public function destroy($id)
     {
-        //
-    }
+        $token = PersonalAccessToken::find($id);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+        if (!$token) {
+            return response()->json(['message' => 'Token não encontrado'], 404);
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $token->delete();
+
+        return response()->json(['message' => 'Token de acesso pessoal deletado com sucesso']);
     }
 }

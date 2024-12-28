@@ -84,6 +84,32 @@ Inicie o servidor de desenvolvimento do frontend:
         Frontend: http://localhost:4200
         Backend: http://localhost:8000
 
+Testes de Criação de Usuário
+Criação de Usuário via Banco de Dados
+
+A criação de usuários foi testada diretamente no banco de dados utilizando a funcionalidade de migrations do Laravel. A tabela users foi criada corretamente, e usuários foram inseridos via seeder ou diretamente pelo código, garantindo que os dados sejam salvos com sucesso no banco de dados.
+Passos para Testar:
+
+    Execute a migration com o comando:
+
+    php artisan migrate
+
+    Verifique se a tabela users foi criada no banco de dados.
+    Insira um novo usuário utilizando o seeder ou diretamente na aplicação.
+
+Criação de Usuário via Navegador (Interface Web)
+
+A criação de usuários também foi testada através da interface web, onde um formulário de registro foi implementado. Os dados inseridos no formulário são validados e enviados para o banco de dados, com sucesso na criação do usuário.
+Passos para Testar:
+
+    Acesse a URL de registro de usuários na aplicação.
+    Preencha o formulário de registro com os dados necessários.
+    Envie o formulário e verifique se o usuário foi criado corretamente no banco de dados.
+    Certifique-se de que a aplicação responde com uma mensagem de sucesso ou redirecionamento após a criação do usuário.
+
+Criação de Usuário via API
+
+Ainda estamos configurando a versão da API para a criação de usuários. Em breve, será possível realizar a criação de usuários também via requisições API utilizando os endpoints apropriados. Fique atento para atualizações nesta parte da aplicação.
 Licença
 
 Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE para mais detalhes.

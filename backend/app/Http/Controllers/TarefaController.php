@@ -1,53 +1,68 @@
 <?php
 
-// app/Http/Controllers/TarefaController.php
 namespace App\Http\Controllers;
 
-use App\Models\Tarefa;
+use App\Http\Controllers\Controller;
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class TarefaController extends Controller
 {
+    // Exibe a lista de tarefas
     public function index()
     {
-        $tarefas = Tarefa::all();
-        return view('tarefas.index', compact('tarefas'));
+        $tasks = Task::all();
+        return view('tasks.index', compact('tasks'));
     }
 
-    public function show($id)
-    {
-        $tarefa = Tarefa::findOrFail($id);
-        return view('tarefas.show', compact('tarefa'));
-    }
-
+    // Exibe o formulário para criar uma nova tarefa
     public function create()
     {
-        return view('tarefas.create');
+        return view('tasks.create');
     }
 
+    // Cria uma nova tarefa
     public function store(Request $request)
     {
-        Tarefa::create($request->all());
-        return redirect()->route('tarefas.index');
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+        ]);
+
+        Task::create($request->all());
+
+        return redirect()->route('tasks.index');
     }
 
-    public function edit($id)
+    // Exibe uma tarefa específica
+    public function show(Task $task)
     {
-        $tarefa = Tarefa::findOrFail($id);
-        return view('tarefas.edit', compact('tarefa'));
+        return view('tasks.show', compact('task'));
     }
 
-    public function update(Request $request, $id)
+    // Exibe o formulário para editar uma tarefa
+    public function edit(Task $task)
     {
-        $tarefa = Tarefa::findOrFail($id);
-        $tarefa->update($request->all());
-        return redirect()->route('tarefas.index');
+        return view('tasks.edit', compact('task'));
     }
 
-    public function destroy($id)
+    // Atualiza uma tarefa
+    public function update(Request $request, Task $task)
     {
-        Tarefa::destroy($id);
-        return redirect()->route('tarefas.index');
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+        ]);
+
+        $task->update($request->all());
+
+        return redirect()->route('tasks.index');
+    }
+
+    // Exclui uma tarefa
+    public function destroy(Task $task)
+    {
+        $task->delete();
+        return redirect()->route('tasks.index');
     }
 }
-

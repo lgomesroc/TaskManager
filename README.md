@@ -44,62 +44,81 @@
    ```bash
    git clone https://github.com/seu-usuario/TaskManager.git
    cd TaskManager
+   ```
 
     Configure o ambiente usando Docker:
 
+    Execute o comando abaixo para subir os containers:
+```
 docker-compose up -d
+```
 
 Instale as dependências do backend (Laravel):
-
+```
 cd backend
 composer install
+```
 
 Configure o banco de dados no arquivo .env do Laravel com as seguintes credenciais:
-
+``` mysql
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=taskmanager
 DB_USERNAME=lgomesroc
 DB_PASSWORD=12345
+```
 
 Execute as migrations para criar as tabelas no banco de dados:
-
+``` bash
 php artisan migrate
+```
 
-Inicie o servidor de desenvolvimento do backend:
+Para acessar o container e rodar o comando php artisan serve:
+``` bash
+docker-compose exec app bash
+```
 
-php artisan serve
+Dentro do container, execute:
+``` bash
+php artisan serve --host=0.0.0.0 --port=8080
+```
 
 Instale as dependências do frontend (Angular):
-
+``` bash
 cd ../frontend
 npm install
+```
 
 Inicie o servidor de desenvolvimento do frontend:
+``` bash
+ng serve
+```
 
-    ng serve
+Acesse o sistema no navegador:
 
-    Acesse o sistema no navegador:
-        Frontend: http://localhost:4200
-        Backend: http://localhost:8000
+Frontend http://localhost:4200  
+Backend http://localhost:8080
 
-Testes de Criação de Usuário
+### Testes de Criação de Usuário
 Criação de Usuário via Banco de Dados
 
 A criação de usuários foi testada diretamente no banco de dados utilizando a funcionalidade de migrations do Laravel. A tabela users foi criada corretamente, e usuários foram inseridos via seeder ou diretamente pelo código, garantindo que os dados sejam salvos com sucesso no banco de dados.
+
 Passos para Testar:
 
-    Execute a migration com o comando:
-
+   Execute a migration com o comando:
+``` bash
     php artisan migrate
+```
+   Verifique se a tabela users foi criada no banco de dados.
 
-    Verifique se a tabela users foi criada no banco de dados.
-    Insira um novo usuário utilizando o seeder ou diretamente na aplicação.
+Insira um novo usuário utilizando o seeder ou diretamente na aplicação.
 
 Criação de Usuário via Navegador (Interface Web)
 
 A criação de usuários também foi testada através da interface web, onde um formulário de registro foi implementado. Os dados inseridos no formulário são validados e enviados para o banco de dados, com sucesso na criação do usuário.
+
 Passos para Testar:
 
     Acesse a URL de registro de usuários na aplicação.

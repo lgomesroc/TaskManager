@@ -1,0 +1,32 @@
+{
+    "name": "lucianogr/task-manager",
+    "description": "Sistema de gerenciamento de tarefas com Laravel e Angular.",
+    "require": {
+        "laravel/framework": "^11.37",
+        "barryvdh/laravel-debugbar": "^3.14",
+        "barryvdh/laravel-dompdf": "^3.0",
+        "fruitcake/laravel-cors": "^3.0",
+        "laravel/sanctum": "^4.0",
+        "laravel/socialite": "^5.16",
+        "spatie/laravel-permission": "^6.10",
+        "maatwebsite/excel": "^3.1",
+        "nesbot/carbon": "^3.8",
+        "doctrine/dbal": "^4.2",
+        "phpunit/phpunit": "^11.5",
+        "guzzlehttp/guzzle": "^7.9",
+        "symfony/var-dumper": "^7.2",
+        "fakerphp/faker": "^1.24"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Lucianogr\\TaskManager\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Luciano Gomes",
+            "email": "lgomesroc2012@gmail.com"
+        }
+    ]
+}

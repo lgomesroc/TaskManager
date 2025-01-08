@@ -1,0 +1,20 @@
+Para executar e entrar no conteiner além de executar o sistema, copie esses 4 comandos e cola no terminal na pasta backend
+
+docker-compose up -d
+docker ps
+docker-compose exec app bash
+php artisan serve --host=0.0.0.0 --port=8080
+
+
+Para sair da execução do Laravel, Ctrl + C no terminal
+
+
+Parar os conteineres é só digitar no terminal:
+
+docker-compose down
+
+
+Reiniciar os conteineres:
+
+docker-compose restart
+

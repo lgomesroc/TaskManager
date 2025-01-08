@@ -37,30 +37,23 @@
 - [Composer](https://getcomposer.org/)
 - [MySQL](https://www.mysql.com/)
 
-### Configuração do Ambiente
+## Configuração do Ambiente
 
-1. Clone o repositório:
+### Clone o repositório:
 
    ```bash
    git clone https://github.com/seu-usuario/TaskManager.git
    cd TaskManager
    ```
 
-    Configure o ambiente usando Docker:
-
-    Execute o comando abaixo para subir os containers:
-```
-docker-compose up -d
-```
-
 Instale as dependências do backend (Laravel):
-```
+```bash
 cd backend
 composer install
 ```
 
 Configure o banco de dados no arquivo .env do Laravel com as seguintes credenciais:
-``` mysql
+```mysql
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -70,65 +63,110 @@ DB_PASSWORD=12345
 ```
 
 Execute as migrations para criar as tabelas no banco de dados:
-``` bash
+```bash
 php artisan migrate
 ```
 
-Para acessar o container e rodar o comando php artisan serve:
-``` bash
+### Comandos para Preparar o Ambiente
+
+- **Parar o Apache (se estiver em execução):**
+```bash
+   sudo systemctl stop apache2
+```
+
+- **Desativar o Apache para não iniciar automaticamente no sistema.**
+  Se preferir desativar para não ser inicializado com o sistema, use o seguinte comando:
+```bash
+sudo systemctl disable apache2
+```
+
+## Comandos Básicos para Containers
+
+### Inicializar os Containers
+```bash
+docker-compose up -d
+```
+Inicializa os containers em segundo plano.
+
+### Verificar os Containers Ativos
+```bash
+docker ps
+```
+Mostra todos os containers em execução, com os nomes e IDs.
+
+### Entrar no Container do Laravel
+```bash
 docker-compose exec app bash
 ```
 
-Dentro do container, execute:
-``` bash
+### Executar o php artisan serve
+
+Após entrar no container, execute:
+```bash
 php artisan serve --host=0.0.0.0 --port=8080
 ```
+- Inicia o servidor Laravel dentro do container.
+    O parâmetro --host=0.0.0.0 garante que o servidor fique acessível de fora do container.
 
-Instale as dependências do frontend (Angular):
-``` bash
+### Parar os Containers
+```bash
+docker-compose down
+```
+Para e remove todos os containers iniciados pelo docker-compose.
+
+### Reiniciar os Containers
+```bash
+docker-compose restart
+```
+Reinicia os containers sem precisar recriá-los.
+
+
+### Instale as dependências do frontend (Angular):
+```bash
 cd ../frontend
 npm install
 ```
 
-Inicie o servidor de desenvolvimento do frontend:
-``` bash
+### Inicie o servidor de desenvolvimento do frontend:
+```bash
 ng serve
 ```
 
-Acesse o sistema no navegador:
+### Acesse o sistema no navegador:
 
-Frontend http://localhost:4200  
-Backend http://localhost:8080
+- **Frontend http://localhost:4200**  
+- **Backend http://localhost:8080**
 
 ### Testes de Criação de Usuário
-Criação de Usuário via Banco de Dados
+**Criação de Usuário via Banco de Dados**
 
 A criação de usuários foi testada diretamente no banco de dados utilizando a funcionalidade de migrations do Laravel. A tabela users foi criada corretamente, e usuários foram inseridos via seeder ou diretamente pelo código, garantindo que os dados sejam salvos com sucesso no banco de dados.
 
-Passos para Testar:
+**Passos para Testar:**
 
-   Execute a migration com o comando:
-``` bash
+- Execute a migration com o comando:
+```bash
     php artisan migrate
 ```
-   Verifique se a tabela users foi criada no banco de dados.
+- Verifique se a tabela users foi criada no banco de dados.
 
-Insira um novo usuário utilizando o seeder ou diretamente na aplicação.
+- Insira um novo usuário utilizando o seeder ou diretamente na aplicação.
 
-Criação de Usuário via Navegador (Interface Web)
+### Criação de Usuário via Navegador (Interface Web)
 
 A criação de usuários também foi testada através da interface web, onde um formulário de registro foi implementado. Os dados inseridos no formulário são validados e enviados para o banco de dados, com sucesso na criação do usuário.
 
-Passos para Testar:
+**Passos para Testar:**
 
-    Acesse a URL de registro de usuários na aplicação.
-    Preencha o formulário de registro com os dados necessários.
-    Envie o formulário e verifique se o usuário foi criado corretamente no banco de dados.
-    Certifique-se de que a aplicação responde com uma mensagem de sucesso ou redirecionamento após a criação do usuário.
+- Acesse a URL de registro de usuários na aplicação. **
+- Preencha o formulário de registro com os dados necessários.
+- Envie o formulário e verifique se o usuário foi criado corretamente no banco de dados.
+- Certifique-se de que a aplicação responde com uma mensagem de sucesso ou redirecionamento após a criação do usuário.
 
-Criação de Usuário via API
+### Criação de usuário via API
 
 Ainda estamos configurando a versão da API para a criação de usuários. Em breve, será possível realizar a criação de usuários também via requisições API utilizando os endpoints apropriados. Fique atento para atualizações nesta parte da aplicação.
-Licença
+
+## Licença
 
 Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE para mais detalhes.

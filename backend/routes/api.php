@@ -28,7 +28,12 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('role-users', RoleUserController::class);
     Route::apiResource('password-reset-tokens', PasswordResetTokenController::class);
     Route::apiResource('personal-access-tokens', PersonalAccessTokenController::class);
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::apiResource('users', UserController::class)->except(['store', 'generateToken']);
+    });
 });
 
-// Rotas de usuários (algumas endpoints são públicos, outros protegidos no controller)
-Route::apiResource('users', UserController::class);
+// Rotas de criação de usuários e login (públicas)
+Route::post('users', [UserController::class, 'store']);
+Route::post('login', [UserController::class, 'generateToken']);
+

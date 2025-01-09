@@ -84,6 +84,7 @@ sudo systemctl disable apache2
 
 ### Inicializar os Containers
 ```bash
+docker-compose build --no-cache
 docker-compose up -d
 ```
 Inicializa os containers em segundo plano.
@@ -120,6 +121,77 @@ docker-compose restart
 ```
 Reinicia os containers sem precisar recriá-los.
 
+### Gerar uma Nova Chave de Aplicação
+
+Siga o passo:
+
+- Abra um terminal dentro do seu contêiner Docker onde a aplicação está rodando. Execute o comando:
+```bash
+php artisan key:generate
+```
+Isso gerará uma nova chave de aplicação e atualizará seu arquivo .env com essa chave.
+
+## Instruções para Gerar Senha Criptografada com bcrypt no Laravel
+
+Durante o desenvolvimento do projeto, você pode precisar gerar senhas criptografadas para inserir no banco de dados. Para isso, o Laravel utiliza o `bcrypt` para criptografar as senhas de maneira segura.
+
+### Passo a Passo
+
+### 1. Abra o terminal no diretório do seu projeto Laravel
+
+Certifique-se de que você está no diretório backend do seu projeto Laravel.
+
+### 2. Execute o comando `php artisan tinker`
+
+O comando `php artisan tinker` abre um ambiente interativo onde você pode executar código PHP dentro do contexto do Laravel. No terminal, execute:
+
+```bash
+php artisan tinker
+```
+### 3. Gere a senha criptografada com o bcrypt
+
+Dentro do ambiente interativo do tinker, execute o seguinte comando para gerar uma senha criptografada:
+```
+bcrypt('password123');
+```
+Isso retornará uma string como:
+
+**$2y$10$B1.k/IE2HZmjFg7gnnxHRf8MyDJcn5UbyON6eA2sdoHEdf6I7uX9i**
+
+Essa string é a versão criptografada da senha 'password123'.
+### 4. Use a senha criptografada no banco de dados
+
+Agora que você tem a senha criptografada, pode utilizá-la ao inserir dados na tabela users. Exemplo de como inserir um usuário com a senha criptografada:
+```
+INSERT INTO users (name, email, password, password_confirmation, role)
+VALUES ('John Doe', 'john.doe@example.com', 
+'$2y$10$B1.k/IE2HZmjFg7gnnxHRf8MyDJcn5UbyON6eA2sdoHEdf6I7uX9i', 
+'$2y$10$B1.k/IE2HZmjFg7gnnxHRf8MyDJcn5UbyON6eA2sdoHEdf6I7uX9i', 'usuario');
+```
+### 5. Saia do tinker
+
+Após gerar a senha, você pode sair do ambiente interativo com o comando:
+```bash
+exit
+```
+
+### Comando para entrar no conteiner do banco de dados e popular pelo terminal
+- para acessar:
+- ```bash
+  docker exec -it mysql_db mysql -u lgomesroc -p
+  ```
+- para popular, mas antes tem que escolher o banco de dados
+```mysql
+- USE taskmanager;
+  INSERT INTO users (name, email, password, password_confirmation, role)
+  VALUES ('John Doe', 'john.doe@example.com',
+  '$2y$10$B1.k/IE2HZmjFg7gnnxHRf8MyDJcn5UbyON6eA2sdoHEdf6I7uX9i',
+  '$2y$10$B1.k/IE2HZmjFg7gnnxHRf8MyDJcn5UbyON6eA2sdoHEdf6I7uX9i', 'usuario');
+ ```
+- Para sair do conteiner do banco de dados 
+```bash 
+exit;
+```
 
 ### Instale as dependências do frontend (Angular):
 ```bash

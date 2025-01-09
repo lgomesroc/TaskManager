@@ -7,15 +7,87 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
-
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    // Adicione o uso da classe 'Controller' para que o método 'middleware' seja reconhecido
     public function __construct()
     {
-        // Aplica a autenticação Sanctum para todas as rotas, exceto a criação de usuário
-        $this->middleware('auth:sanctum')->except(['store']);
+        //$this->middleware('auth:sanctum')->except(['store', 'login']);
+    }
+
+    public function login(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
+        if (!Auth::attempt($request->only('email', 'password'))) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Credenciais inválidas'
+            ], 401);
+        }
+
+        $user = User::where('email', $request->email)->first();
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return response()->json([
+            'status' => 'success',
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+            'user' => $user
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:8',
+            'role' => 'sometimes|required|in:admin,usuario'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
+        try {
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'role' => $request->role ?? 'usuario'
+            ]);
+
+            $token = $user->createToken('auth_token')->plainTextToken;
+
+            return response()->json([
+                'status' => 'success',
+                'data' => $user,
+                'access_token' => $token,
+                'token_type' => 'Bearer'
+            ], 201);
+        } catch (\Exception $e) {
+            Log::error('Erro ao criar usuário: ' . $e->getMessage());
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Erro ao criar usuário'
+            ], 500);
+        }
     }
 
     public function index()
@@ -32,46 +104,6 @@ class UserController extends Controller
                 'message' => 'Erro ao listar usuários'
             ], 500);
         }
-    }
-
-    public function store(Request $request)
-    {
-        Log::info('Store method called.');
-
-        // Validação dos dados de entrada
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:8',
-            'role' => 'sometimes|required|in:admin,usuario'
-        ]);
-
-        // Se a validação falhar, retorna os erros
-        if ($validator->fails()) {
-            Log::info('Validation failed.');
-            return response()->json([
-                'status' => 'error',
-                'errors' => $validator->errors()
-            ], 422);
-        }
-
-        Log::info('Validation passed.');
-
-        // Criação do novo usuário
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-            'role' => $request->role ?? 'usuario'
-        ]);
-
-        Log::info('User created.');
-
-        // Retorno do usuário criado
-        return response()->json([
-            'status' => 'success',
-            'data' => $user
-        ], 201);
     }
 
     public function show($id)
@@ -95,7 +127,6 @@ class UserController extends Controller
         try {
             $user = User::findOrFail($id);
 
-            // Validação dos dados de entrada para atualização
             $validator = Validator::make($request->all(), [
                 'name' => 'sometimes|required|string|max:255',
                 'email' => 'sometimes|required|email|unique:users,email,' . $id,
@@ -103,7 +134,6 @@ class UserController extends Controller
                 'role' => 'sometimes|required|in:admin,usuario'
             ]);
 
-            // Se a validação falhar, retorna os erros
             if ($validator->fails()) {
                 return response()->json([
                     'status' => 'error',
@@ -111,16 +141,13 @@ class UserController extends Controller
                 ], 422);
             }
 
-            // Dados a serem atualizados
             $dataToUpdate = $request->only(['name', 'email', 'role']);
             if ($request->filled('password')) {
-                $dataToUpdate['password'] = bcrypt($request->password);
+                $dataToUpdate['password'] = Hash::make($request->password);
             }
 
-            // Atualiza o usuário
             $user->update($dataToUpdate);
 
-            // Retorno do usuário atualizado
             return response()->json([
                 'status' => 'success',
                 'data' => $user

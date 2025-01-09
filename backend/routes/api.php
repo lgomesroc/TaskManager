@@ -11,6 +11,10 @@ use App\Http\Controllers\Api\PasswordResetTokenController;
 use App\Http\Controllers\Api\PersonalAccessTokenController;
 use App\Http\Controllers\Api\TarefaController;
 
+// Rotas públicas
+Route::post('users', [UserController::class, 'store']);
+Route::post('login', [UserController::class, 'login']);
+
 // Rota do usuário autenticado
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -18,6 +22,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Grupo de rotas protegidas por autenticação
 Route::middleware('auth:sanctum')->group(function () {
+    // Rotas de Usuários (exceto criar e login)
+    Route::apiResource('users', UserController::class)->except(['store']);
+
     // Rotas de Tarefas
     Route::apiResource('tarefas', TarefaController::class);
 
@@ -28,12 +35,4 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('role-users', RoleUserController::class);
     Route::apiResource('password-reset-tokens', PasswordResetTokenController::class);
     Route::apiResource('personal-access-tokens', PersonalAccessTokenController::class);
-    Route::middleware('auth:sanctum')->group(function () {
-        Route::apiResource('users', UserController::class)->except(['store', 'generateToken']);
-    });
 });
-
-// Rotas de criação de usuários e login (públicas)
-Route::post('users', [UserController::class, 'store']);
-Route::post('login', [UserController::class, 'generateToken']);
-

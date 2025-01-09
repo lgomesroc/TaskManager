@@ -1,7 +1,7 @@
 <?php
-// routes/web.php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\AttachmentController;
 use App\Http\Controllers\RoleController;
@@ -13,7 +13,7 @@ use App\Http\Controllers\TarefaController;
 
 // Página inicial
 Route::get('/', function () {
-    return view('welcome');  // Página inicial, pode ser modificada
+    return view('welcome');
 });
 
 // Rotas para Tarefas
@@ -66,3 +66,8 @@ Route::delete('/password_reset_tokens/{id}', [PasswordResetTokenController::clas
 Route::get('/personal_access_tokens', [PersonalAccessTokenController::class, 'index'])->name('personal_access_tokens.index');
 Route::post('/personal_access_tokens', [PersonalAccessTokenController::class, 'store'])->name('personal_access_tokens.store');
 Route::delete('/personal_access_tokens/{id}', [PersonalAccessTokenController::class, 'destroy'])->name('personal_access_tokens.destroy');
+
+// Rotas de Autenticação
+Route::get('/user/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/user/login', [AuthController::class, 'login']);
+?>
